@@ -16,6 +16,6 @@ export class SeedController {
   async runExecute() {
     //const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=650')
     
-    return this.seedService.executeSeedv2()
+    return this.seedService.executeSeedV4()
   }
 }
