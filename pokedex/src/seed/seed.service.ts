@@ -92,7 +92,7 @@ export class SeedService {
     await this.modelPokemon.deleteMany()
     const pokemonsToInsert: { name: string, no: number }[] = []
     const { results } = await this.axiosAdapter.get<PokeAPIInterface>('https://pokeapi.co/api/v2/pokemon?limit=200')
-    console.log(results)
+    //console.log(results)
     results.forEach(({ name, url }) => {
       const segments = url.split('/')
       const no: number = +segments[segments.length - 2]
