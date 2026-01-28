@@ -4,9 +4,10 @@ import { SeedController } from './seed.controller';
 import { HttpModule } from '@nestjs/axios';
 import { PokemonModule } from 'src/pokemon/pokemon.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { CommonModule } from 'src/common/common.module';
 
 @Module({
-  imports: [HttpModule, PokemonModule, MongooseModule],
+  imports: [PokemonModule, MongooseModule, CommonModule],
   controllers: [SeedController],
   providers: [SeedService],
 
