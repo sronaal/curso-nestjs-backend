@@ -17,7 +17,7 @@ export class PokemonService {
     private readonly configService: ConfigService
 
   ) { 
-    console.log(process.env.PORT)
+    
     this.defaultLimit = configService.getOrThrow<number>('defaultLimit')
     
   }
@@ -44,7 +44,7 @@ export class PokemonService {
   }
 
   findAll(paginationDto: PaginationDTO) {
-
+    console.log(this.defaultLimit)
     const { limit = this.defaultLimit, offset = 0} = paginationDto
     return this.pokemonModel.find()
     .limit(limit)
@@ -96,7 +96,7 @@ export class PokemonService {
     const { deletedCount } = await this.pokemonModel.deleteOne({_id : id})
 
     if ( deletedCount === 0) {
-      throw new BadRequestException(`Pokemon with id "${id} not found"`)
+      throw new BadRequestException(`Pokemon with id "${id}" not found`)
     }
 
     return `Pokemon with ${id} deleted`

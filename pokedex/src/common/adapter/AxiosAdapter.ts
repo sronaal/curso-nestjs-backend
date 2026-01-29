@@ -13,9 +13,9 @@ export class AxiosAdapter implements HttpAdapter {
   async get<T>(url: string): Promise<T> {
     try {
       const { data } = await firstValueFrom(this.httpService.get<T>(url))
-
       return data
     } catch (error) {
+      
       throw error
     }
   }
